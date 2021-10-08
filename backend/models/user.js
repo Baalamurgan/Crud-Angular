@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    fullname: {
+      fullname: {
         type: String,
         required: true,
         maxlength: 32,
@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
         trim: true,
         unique: true,
       },
-      countrycode: {
+      code: {
         type: String,
       },
     },

@@ -1,0 +1,33 @@
+<style>
+  table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+</style>
+
+<button [routerLink]="['/userform']" class="flex mx-auto mt-20 mb-10 cursor-pointer border-none p-5 rounded bg-black text-white focus:outline-none hover:text-black hover:bg-green-700 hover:md:bg-black">
+    New User
+  </button>
+    <div style="overflow-x:auto;margin-right: 40px;margin-left: 40px;">
+      <table class="table-auto">
+        <tr>
+          <th class="px-4 py-2 text-emerald-600">Full Name</th>
+          <th class="px-4 py-2 text-emerald-600">Email</th>
+          <th class="px-4 py-2 text-emerald-600">Edit</th>
+          <th class="px-4 py-2 text-emerald-600">Delete</th>
+        </tr>
+        <tr class="hover:bg-green-500" *ngFor="let user of Users; let i = index">
+          <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">{{user.fullname}}</td>
+          <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">{{user.email}}</td>
+          <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium"><button class="hover:text-white bg-blue-800 p-2 rounded" routerLink="/updateform/{{user._id}}">EDIT</button></td>
+          <td class="border border-emerald-500 px-4 py-2 text-emerald-600"><button class="hover:text-white bg-red-800 p-2 rounded" (click)="onDeleteUser(user._id,i)">DELETE</button></td>
+        </tr>
+      </table>
+    </div>
